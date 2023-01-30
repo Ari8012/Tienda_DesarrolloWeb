@@ -1,20 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <title>Tienda Desarrollo Web</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pagina de la leccion 2"/>
+        <meta name="keywords" content="html5,css,web,fidelitas"/>
+        <link href="css/estilos..css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <a href="ejemplo9.html">Back</a>|
-        <a href="index.html">Home</a>|
-        <a href="ejemplo2.html">Next</a><br>
         
         
-        <div> // Las etiquetas "div" permiten agrupar elementos//
+        
+        <header id="Encabezado"> <!-- Esta etiqueta indica al navegador que es un encabezado-->
+            <h1>Tienda en linea</h1>
+            <br/><!-- Salto de linea-->
+        </header>
+        <nav  id="Menu">
+            <a href="ejemplo9.html">Back</a>|
+            <a href="index.html">Home</a>|
+            <a href="ejemplo2.html">Next</a><br>  
+        </nav>
+        
+        <aside id="BarraLateral">
+            <h2>Productos mas vendidos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vivamus, nullam lobortis vulputate fusce id tellus blandit lectus, massa habitant justo montes condimentum bibendum sapien. Tincidunt sociosqu lacinia malesuada facilisi, dis mi nulla, libero placerat etiam. Rutrum hac bibendum per augue congue orci vestibulum porta vitae nisi, fermentum praesent semper facilisis elementum lacinia erat aliquet platea, sodales inceptos magnis mollis luctus scelerisque dapibus blandit lacus. Duis curae taciti habitant hendrerit curabitur a faucibus est vel, elementum sociosqu eros purus diam quis nec lacus congue commodo, id nisi condimentum velit accumsan sed ac pretium.</p>
+
+        </aside>
+        <section id="Contenido">
+            <h2>Articulos Principales</h2>
+            <article>
+                <header>Asus Vivobook</header>
+                <p class="description"><cite>Lorem ipsum dolor sit amet consectetur</cite> adipiscing elit vivamus, nullam lobortis vulputate fusce id tellus blandit lectus, massa habitant justo montes condimentum bibendum sapien. Tincidunt sociosqu lacinia malesuada facilisi, dis mi nulla, libero placerat etiam. Rutrum hac bibendum per augue congue orci vestibulum porta vitae nisi, fermentum praesent semper facilisis elementum lacinia erat aliquet platea, sodales inceptos magnis mollis luctus scelerisque dapibus blandit lacus. Duis curae taciti habitant hendrerit curabitur a faucibus est vel, elementum sociosqu eros purus diam quis nec lacus congue commodo, id nisi condimentum velit accumsan sed ac pretium.</p>
+                <figure>
+                    <img src="images/Imagen1.png" alt="Asus Vivobook" width="200"/>
+                    <figcaption>Imagen con fines ilustrativos</figcaption>
+                </figure>
+            </article>
+            <article>
+                <header>Alienware ATD 900</header>
+                <p class="description"><cite>Lorem ipsum dolor sit amet consectetur</cite> adipiscing elit vivamus, nullam lobortis vulputate fusce id tellus blandit lectus, massa habitant justo montes condimentum bibendum sapien. Tincidunt sociosqu lacinia malesuada facilisi, dis mi nulla, libero placerat etiam. Rutrum hac bibendum per augue congue orci vestibulum porta vitae nisi, fermentum praesent semper facilisis elementum lacinia erat aliquet platea, sodales inceptos magnis mollis luctus scelerisque dapibus blandit lacus. Duis curae taciti habitant hendrerit curabitur a faucibus est vel, elementum sociosqu eros purus diam quis nec lacus congue commodo, id nisi condimentum velit accumsan sed ac pretium.</p>
+                <figure>
+                    <img src="images/Imagen2.png" alt="Alienware ATD 900" width="200"/>
+                    <figcaption>Mas vendido</figcaption>
+                </figure>
+            </article>
+            <article>
+                <header>Impresora 3D</header>
+                <p class="description"><cite>Lorem ipsum dolor sit amet consectetur</cite> adipiscing elit vivamus, nullam lobortis vulputate fusce id tellus blandit lectus, massa habitant justo montes condimentum bibendum sapien. Tincidunt sociosqu lacinia malesuada facilisi, dis mi nulla, libero placerat etiam. Rutrum hac bibendum per augue congue orci vestibulum porta vitae nisi, fermentum praesent semper facilisis elementum lacinia erat aliquet platea, sodales inceptos magnis mollis luctus scelerisque dapibus blandit lacus. Duis curae taciti habitant hendrerit curabitur a faucibus est vel, elementum sociosqu eros purus diam quis nec lacus congue commodo, id nisi condimentum velit accumsan sed ac pretium.</p>
+                <figure>
+                    <img src="images/Imagen1.png" alt="Impresora 3D" width="200"/>
+                    <figcaption>Mas Economico</figcaption>
+                </figure>
+            </article>
+            <br/>
+            <br/>
+            <article>
+                <h2>Lineas de productos</h2>
+                <table border="0">
+                    <thead id="EncabezadoTabla">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Descripcion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="TablaResumen">
+                        <tr>
+                            <td>1</td>
+                            <td>Teclados</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Monitores</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Portatiles</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Perifericos</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Baterias</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Headsets</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+        <footer id="PiePagina">
+            Derechos reservados &COPY; 2023<address>Heredia, San Francisco</address><address>8888-8888</address>
+        </footer>
+       <!-- <div>  Las etiquetas "div" permiten agrupar elementos
              <h1>Home</h1>
              <p>Bienvenidos a la pagina de la tienda en linea</p> /*Etiqueta para parrafos*/
-        </div>
+        </div> 
         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vivamus, nullam lobortis vulputate fusce id tellus blandit lectus, massa habitant justo montes condimentum bibendum sapien. Tincidunt sociosqu lacinia malesuada facilisi, dis mi nulla, libero placerat etiam. Rutrum hac bibendum per augue congue orci vestibulum porta vitae nisi, fermentum praesent semper facilisis elementum lacinia erat aliquet platea, sodales inceptos magnis mollis luctus scelerisque dapibus blandit lacus. Duis curae taciti habitant hendrerit curabitur a faucibus est vel, elementum sociosqu eros purus diam quis nec lacus congue commodo, id nisi condimentum velit accumsan sed ac pretium.</p>
         <p>Consequat hendrerit elementum curabitur torquent turpis felis porttitor tempor ornare hac, nullam massa sodales lacinia ante ridiculus nulla quisque aenean, per mattis tempus eget id ligula porta proin ultrices. Congue bibendum parturient vehicula curae inceptos urna, ultrices varius ante penatibus fames, massa metus velit mollis sollicitudin. Leo ad nec tempus pharetra class curae id dui massa, dapibus sociosqu gravida porta ac magna sodales suscipit, ullamcorper laoreet eu turpis phasellus dignissim volutpat potenti.</p>
         <p>Class libero montes habitasse conubia suspendisse porta eros curabitur cras iaculis cubilia, turpis nulla etiam praesent suscipit pretium per litora magnis cum commodo, ornare penatibus senectus blandit nunc urna orci arcu vitae convallis. Justo accumsan taciti bibendum sed feugiat fames vehicula, platea interdum aptent luctus varius duis nulla, eu malesuada lobortis nunc tortor dui. Aenean metus libero eu malesuada mi suscipit purus varius quam, massa feugiat eros phasellus faucibus sodales fringilla vel. Luctus sagittis porttitor tellus parturient rhoncus tortor scelerisque class vestibulum erat, natoque ligula imperdiet nisi id sollicitudin a dui condimentum ad hac, lectus mus vivamus ridiculus bibendum dictumst massa gravida sociis.</p>
@@ -23,6 +107,6 @@
         <br/> 
         <br/> 
         
-        <p>Ultima linea</p>
+        <p>Ultima linea</p>-->
     </body>
 </html>

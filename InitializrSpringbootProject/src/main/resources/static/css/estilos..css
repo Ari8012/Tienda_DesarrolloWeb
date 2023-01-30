@@ -1,0 +1,91 @@
+#Encabezado{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: #496D8D;
+    color: white;
+    padding-left: 15px;
+}
+
+#Encabezado h1{
+    display: inline;
+    
+}
+
+.description{
+    font-size: 18px;
+}
+#Menu{
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: #9B8030;
+    color: black;
+}
+#Menu a:visited{
+    color: navy;
+}
+#Menu a:hoveer{
+    background-color: green;
+    color: white;
+}
+#BarraLateral{
+    position: absolute;
+    top: 12%;
+    left: 0;
+    height: 81%;
+    width: 20%;
+    background-color: #ffde7c;
+    color: black;
+}
+
+#Contenido{
+    position: absolute;
+    top: 12%;
+    left: 20;
+    height: 81%;
+    width: 80%;
+    background-color: cadetblue;
+    color: black;
+    overflow: auto;
+}
+
+#PiePagina{
+    position: absolute;
+   bottom: 0%;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    background-color: gainsboro;
+    color: black;
+    text-align: center;
+}
+.lineaDireccion{
+    display: inline;
+}
+
+#EncabezadoTabla{
+    font-size: 20px;
+    background-color: blue;
+    color: yellowgreen;
+    
+}
+
+#TablaResumen tr{
+    font-size: 25px;
+}
+
+#TablaResumen tr:nth-child(odd){
+    background-color: coral;
+    color: white;
+    
+}
+#TablaResumen tr:nth-child(even){
+    background-color: white;
+    color: darkseagreen;
+}
+    
