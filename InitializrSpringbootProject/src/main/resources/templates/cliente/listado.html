@@ -8,7 +8,7 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Listado de clientes</h2>
+            <h2>Listado de Clientes</h2>
             <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a><!-- Para abrir rutas se utiliza @{}.-->
             <br/>
             <div th:if="${clientes != null and !clientes.empty}">
