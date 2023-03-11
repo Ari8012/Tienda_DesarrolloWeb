@@ -42,29 +42,5 @@ public class IndexController {
         model.addAttribute("clientes", clientes);
         
         return "index"; /* Listas que se retorna en los controladores estan en Templates*/
-    }
-    
-    @GetMapping("/nuevoLCiente")
-    public String nuevoCliente(Cliente cliente){
-        return "modificarCliente";
-    }
-    @PostMapping("/guardarCliente")
-    public String guardarCliente(Cliente cliente){
-        clienteService.save(cliente);
-        return "redirect:/";
-    }
-    
-    @GetMapping("/modificarCliente/{idCliente}")
-    public String modificarCliente(Cliente cliente, Model model){
-        cliente = clienteService.getCliente(cliente);
-        model.addAttribute("cliente",cliente);
-        return "modificarCLiente";
-    }
-    
-    @GetMapping("/eliminarCliente/{idCliente}")
-    public String eliminarCliente(Cliente cliente){
-        clienteService.delete(cliente);
-        return "redirect:/";
-}
-    
+    }  
 }
