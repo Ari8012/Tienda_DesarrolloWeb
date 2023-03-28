@@ -10,9 +10,9 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            <h2>Datos del articulo</h2>
+            <h2 th:text="#{articulo.datos}">Datos del Articulo</h2>
             <br/>
-            <a th:href="@{/articulo/listado}">Regresar</a>
+            <a th:href="@{/articulo/listado}" th:text="#{accion.regresar}">Regresar</a>
             <br/>
             <br/>
             <form th:action="@{/articulo/guardar}"
@@ -20,24 +20,24 @@
                   th:object="${articulo}">
                 <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
                 <br/>
-                <lable for="categori">Categoria:</lable><br/>
+                <lable for="categori" th:text="#{articulo.categoria}">Categoria:</lable><br/>
                 <select th:field="*{idCategoria}">
                     <option th:each="categoria: ${categorias}"
                             th:value="${categoria.idCategoria}"
                             th:text="${categoria.descripcion}"/>
                 </select>
                 <br/>
-                <lable for="descripcion">Descripcion:</lable><br/>
+                <lable for="descripcion" th:text="#{articulo.descripcion}">Descripcion:</lable><br/>
                 <input type="text" name="descripcion" th:field="*{descripcion}" /><br/> 
-                <lable for="detalle">Detalle:</lable><br/>
+                <lable for="detalle" th:text="#{articulo.detalle}">Detalle:</lable><br/>
                 <texttarea name="detalle" th:field="*{detalle}" rows="6" cols="50"/><br/> 
-                <lable for="precio">Precio:</lable><br/>
+                <lable for="precio" th:text="#{articulo.precio}">Precio:</lable><br/>
                 <input type="number" name="precio" th:field="*{precio}" /><br/> 
-                <lable for="existencias">Existencias:</lable><br/>
+                <lable for="existencias" th:text="#{articulo.existencias}">Existencias:</lable><br/>
                 <input type="number" name="existencias" th:field="*{existencias}" /><br/>
-                <lable for="activo">Activo:</lable><br/>
+                <lable for="activo" th:text="#{articulo.activo}">Activo:</lable><br/>
                 <input type="checkbox" name="activo" th:field="*{activo}" /><br/>
-                <input type="submit" name="Guardar" value="Guardar" />
+                <input type="submit" name="Guardar" th:value="#{accion.guardar}" />
             </form>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
