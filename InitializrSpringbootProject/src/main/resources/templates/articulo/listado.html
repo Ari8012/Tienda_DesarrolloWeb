@@ -1,44 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-            <link href="/css/Menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            <h2 th:text="#{articulo.titulo}">Listado de Articulos</h2>
-            <br/>
-            <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo Articulo</a>
-            <br/>
-            <div th:if="${articulos != null and !articulos.empty}">
-                <table border="1">
-                    <thead>
-                        <th th:text="#{articulo.descripcion}">Descripcion</th>
-                        <th th:text="#{articulo.precio}">Precio</th>
-                        <th th:text="#{articulo.existencias}">Existencias</th>
-                        <th th:text="#{articulo.activo}">Activa</th>
-                        <th colspan="2">Acciones</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio, 3, 2)}" style="text-align: right"></td>
-                            <td th:text="${articulo.existencias}" style="text-align: center"></td>
-                            <td><input type="checkbox" name="activa" th:checked="${articulo.activo}" disabled="true"></td>
-                            <td><a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"
-                                   th:text="#{accion.actualizar}">Actualizar</a></td>
-                            <td><a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}"
-                                   th:text="#{accion.eliminar}">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div th:if="${articulos == null or articulos.empty}">
-               <p th:text="#{articulo.no_mostrar}">No tenemos artículos que mostrar</p>
-            </div>
-            <footer th:replace="layout/plantilla :: footer"/>
+        <header th:replace="layout/plantilla :: header" />
+
+        <section th:replace="articulo/fragmentosCliente :: botonesAgregar"/>
+        <section th:replace="articulo/fragmentosCliente :: agregarArticulo"/>
+        <section th:replace="articulo/fragmentosCliente :: listadoArticulos"/>
+
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>

@@ -1,33 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-<html>
-    <head>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/Menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            <h2 th:text="#{categoria.datos}">Datos de Categoria</h2>
-            <br/>
-            <a th:href="@{/categoria/listado}" th:text="#{accion.regresar}">Regresar</a>
-            <br/>
-            <br/>
-            <form th:action="@{/categoria/guardar}"
-                  method="POST"
-                  th:object="${categoria}">
-                <input type="hidden" name="idCategoria" th:field="*{iCategoria}"/>
-                <label for="descripcion" th:text="#{categoria.descripcion}">Descripcion</label>
-                <input type="text" name="descripcion" th:field="*{descripcion}"/>
-                <br/>
-                <label for="activo" th:text="#{categoria.activo}">Activo</label>
-                <input type="checkbox" name="activo" th:field="*{activo}"/>
-                <br/>
-                <input type="submit" name="Guardar" th:value="#{accion.guardar}"/>
-            </form>
-        </div>
-        <footer th:replace="layout/plantilla :: footer"/>
+        <header th:replace="layout/plantilla :: header" />
+        <section th:replace="categoria/fragmentosCategoria :: editarCategoria"/> 
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>
