@@ -1,46 +1,74 @@
-
 package com.Tienda.controller;
 
-
+import com.Tienda.dao.UsuarioDao;
+import com.Tienda.domain.Carrito;
+import com.Tienda.domain.CarritoDetalle;
 import com.Tienda.domain.Cliente;
+import com.Tienda.domain.Usuario;
+import com.Tienda.service.ArticuloService;
+import com.Tienda.service.CarritoDetalleService;
+import com.Tienda.service.CarritoService;
 import com.Tienda.service.ClienteService;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-/**
- *
- * @author heaa1
- */
-@Slf4j
 @Controller
 public class IndexController {
-    
+
     @Autowired
-    ClienteService clienteService;
-    
+    ArticuloService articuloService;
+
+    @Autowired
+    CarritoService carritoService;
+    CarritoDetalleService carritoDetalleService;
+
+    @Autowired
+    UsuarioDao usuarioDao;
+
     @GetMapping("/")/*Responde al Mapping de la ruta base*/
-    public String inicio(Model model){
-        log.info("Ahora utilizando MVC");
-        /*String mensaje = "Estamos en semana 4, saludos";
-        model.addAttribute("MensajeSaludo", mensaje);
+    public String inicio(Model model, HttpServletRequest request) {
+
+        //Obtener usuario loggeado
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails user = null;
+
+        if (principal instanceof UserDetails) {
+            user = (UserDetails) principal;
+        }
+
+        //Validar si el usuario es de un cliente
+        boolean esCliente = false;
+        if (user != null) {
+            Usuario usuario = usuarioDao.findByUsername(user.getUsername());
+
+            if (usuario.getIdCliente() != null && usuario.getIdCliente() != 0) {
+                esCliente = true;
+                Carrito carrito = carritoService.getCarritoCliente(usuario.getIdCliente());
+
+                request.getSession().setAttribute("idCliente", usuario.getIdCliente());
+                request.getSession().setAttribute("idCarrito", carrito.getIdCarrito());
+                request.getSession().setAttribute("esCliente", esCliente);
+
+                //Consultar items del carrito
+                List<CarritoDetalle> carritoDetalles = carritoDetalleService.getCarritoDetalles(carrito.getIdCarrito());
+                model.addAttribute("cantidadArticulosCarrito", carritoDetalles.size());
+            }
+
+        }
         
-        Cliente cliente = new Cliente("Ariana", "Araya Martinez","ariam7273@gmail.com", "8888-8888");
-        Cliente cliente2 = new Cliente("Maria", "Rodriguez Abarca","mrm1@gmail.com", "8888-8888");
-        Cliente cliente3 = new Cliente("Marco", "Rodriguez Abarca","mrm1@gmail.com", "8888-8888");
-        //model.addAttribute("cliente", cliente);
-        List<Cliente> clientes = Arrays.asList(cliente,cliente2, cliente3);
-        model.addAttribute("clientes", clientes);*/
-        
-        //var clientes = clienteDao.findAll();
-        var clientes = clienteService.getClientes();
-        model.addAttribute("clientes", clientes);
-        
-        return "index"; /* Listas que se retorna en los controladores estan en Templates*/
-    }  
+            var articulos = articuloService.getArticulos(true);
+            model.addAttribute("articulos", articulos);
+            model.addAttribute("esClientes", esCliente);
+
+            return "index";
+            /* Listas que se retorna en los controladores estan en Templates*/
+    }
 }

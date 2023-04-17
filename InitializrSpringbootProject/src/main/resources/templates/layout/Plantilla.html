@@ -59,7 +59,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i></a>
                             </li>                            
-                        </ul>
+                        </ul>                        
+                    </div>
+                    <div>                        
+                        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto" th:if="${esCliente != null and esCliente}">     
+                            <li class="nav-item mr-3">                              
+                                <a th:href="@{/carrito/listado}" class="nav-link">                                   
+                                    <i class="fas fa-shopping-cart"></i>                                   
+                                    <span th:text="${cantidadArticulosCarrito}" class="btn btn-danger">Cantidad</span>          
+                                </a>                         
+                            </li>                  
+                        </ul>               
                     </div>
                 </div>
             </nav>

@@ -15,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -24,7 +24,7 @@ public class SecurityConfig {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
- /*   @Bean
+    /*   @Bean
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("admin")
@@ -41,7 +41,6 @@ public class SecurityConfig {
                 .build());
         return manager;
     }*/
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception {
@@ -72,6 +71,11 @@ public class SecurityConfig {
                         "/categoria/listado",
                         "/cliente/listado")
                 .hasAnyRole("ADMIN", "VENDEDOR")
+                .requestMatchers(
+                        "/carrito/agregar/**",
+                        "/carrito/eliminar/**",
+                        "/carrito/listado")
+                .hasRole("USER")
                 )
                 .formLogin((form) -> form
                 .loginPage("/login")

@@ -33,18 +33,6 @@ public class ArticuloServiceImpl implements ArticuloService {
     @Transactional(readOnly = true)// Manejo de transacciones de lectura.
     public Articulo getArticulo(Articulo articulo) {
         return articuloDao.findById(articulo.getIdArticulo()).orElse(null); // Para que devuelva un articulo.
-    }
-
-    @Override
-    @Transactional
-    public void save(Articulo articulo) {
-        articuloDao.save(articulo);
-    }
-    
-    @Override
-    @Transactional
-    public void delete(Articulo articulo) {
-        articuloDao.deleteById(articulo.getIdArticulo());
-    }    
+    }   
 }
 
